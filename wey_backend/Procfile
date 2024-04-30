@@ -1,0 +1,1 @@
+web: gunicorn wey_backend.wsgi --log-file -
