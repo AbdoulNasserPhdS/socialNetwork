@@ -1,0 +1,68 @@
+from django.db import models
+from account.models import User
+import uuid
+from django.utils.timesince import timesince
+
+from wey_backend import settings
+# Create your models here.
+
+
+
+class PostAttachment(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    image = models.ImageField(upload_to='post_attachments')
+    created_by = models.ForeignKey(User, related_name='post_attachments', on_delete=models.CASCADE)
+
+    def get_image(self):
+        if self.image:
+            return settings.WEBSITE_URL + self.image.url
+        else:
+            return ''
+        
+        
+
+class Like(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    created_by = models.ForeignKey(User, related_name='user_comments', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+class Comment(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    comment = models.TextField(blank=True, null=True)
+    created_by = models.ForeignKey(User, related_name='user_likes', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    def created_at_formatted_comment(self):
+      return timesince(self.created_at)
+    
+
+class Post(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    body = models.TextField(blank=True, null=True)
+
+    attachments = models.ManyToManyField(PostAttachment, blank=True)
+
+    is_private = models.BooleanField(default=False)
+    
+    like=models.ManyToManyField(Like,blank=True, related_name='post_likes')
+    likes_count=models.IntegerField(default=0)
+    
+    comments=models.ManyToManyField(Comment,blank=True, related_name='post_comments')
+    comments_count=models.IntegerField(default=0)
+
+    # reported_by_users = models.ManyToManyField(User, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ('-created_at',)
+    
+    def created_at_formatted(self):
+       return timesince(self.created_at)
+    
+
+class Trend(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
+    hashtag = models.TextField(max_length=255)
+    occurences = models.IntegerField(default=0)
