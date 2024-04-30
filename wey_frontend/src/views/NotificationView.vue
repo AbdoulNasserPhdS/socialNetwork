@@ -28,11 +28,10 @@
             <p class="text-gray-700">{{ notification?.body }}</p>
 
             <RouterLink
-              :to="{name:'details', params:{'id':notification?.post?.id}}"
+              :to="{ name: 'details', params: { id: notification?.post?.id } }"
               class="text-blue-500 underline"
               >See
             </RouterLink>
-            
           </div>
         </div>
       </div>

@@ -108,6 +108,8 @@ export default {
           const response = await PostService.add_post(formData);
           props.posts.unshift(response.data.post);
           toaster.success(`Post Succeful added !`);
+          body.value="";
+
         } catch (error) {
           console.log(error);
           toaster.error(`error during operation, please try again.`);

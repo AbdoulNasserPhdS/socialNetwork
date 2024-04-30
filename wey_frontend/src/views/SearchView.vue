@@ -67,7 +67,11 @@
     <!-- Liste de publications -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div v-for="post in posts" :key="post.id">
-        <PostListItem :post="post" :posts="posts" @click="redirectToDeatilsPage(post.id)"></PostListItem>
+        <PostListItem
+          :post="post"
+          :posts="posts"
+          @click="redirectToDeatilsPage(post.id)"
+        ></PostListItem>
       </div>
     </div>
   </div>
@@ -115,8 +119,7 @@ export default {
 
     const redirectToDeatilsPage = (id) => {
       // router.push(`/details/${post.id}`);
-      router.push({ name: 'details', params: { id} });
-
+      router.push({ name: "details", params: { id } });
     };
 
     onMounted(async () => {

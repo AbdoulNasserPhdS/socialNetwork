@@ -24,40 +24,21 @@ from rest_framework import status
 # @authentication_classes([])
 def post_list(request):
     
-    if request.user.id :
-        user_ids = [request.user.id]
+    # if request.user.id :
+    #     user_ids = [request.user.id]
     
-        user_ids = [request.user.id]
+    #     user_ids = [request.user.id]
 
-        # Ajouter les IDs des amis de l'utilisateur actuel
-        for user in request.user.friends.all():
-            user_ids.append(user.id)
+    #     for user in request.user.friends.all():
+    #         user_ids.append(user.id)
 
-        # Récupérer les posts associés aux IDs des utilisateurs
-        posts = Post.objects.filter(created_by_id__in=user_ids)
-    else :
-        posts = Post.objects.all()
-
+    #     posts = Post.objects.filter(created_by_id__in=user_ids)
+    # else :
+    #     posts = Post.objects.all()
     
-    
-   
-
-
-    
-    # for user in request.user.friends.all():
-    #     user_ids.append(user.id)
-
-    # posts = Post.objects.filter(created_by_id=user_ids)
-
-    # trend = request.GET.get('trend', '')
-
-    # if trend:
-    #     posts = posts.filter(body__icontains='#' + trend).filter(is_private=False)
-
+    posts = Post.objects.all()
     serializer = PostSerializer(posts, many=True)
-    
     # print(serializer.data)
-    
     return JsonResponse({'data':serializer.data})
     
     

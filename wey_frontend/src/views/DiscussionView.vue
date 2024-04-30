@@ -1,10 +1,16 @@
 <template>
   <!-- component -->
-  <MobileHeader title="Discussion" redirect_url="/discussion" class="md:hidden"></MobileHeader>
+  <MobileHeader
+    title="Discussion"
+    redirect_url="/discussion"
+    class="md:hidden"
+  ></MobileHeader>
 
   <div class="flex h-screen antialiased text-gray-800 pb-20 md:pb-0">
     <div class="flex flex-row h-full w-full overflow-x-hidden">
-      <div class="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0 hidden md:block">
+      <div
+        class="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0 hidden md:block"
+      >
         <div class="flex flex-row items-center justify-center h-12 w-full">
           <div
             class="flex items-center justify-center rounded-2xl text-indigo-700 bg-indigo-100 h-10 w-10"
@@ -120,9 +126,7 @@
         </div>
       </div>
       <div class="flex flex-col flex-auto h-full">
-        <div
-          class="flex flex-col flex-auto flex-shrink-0 bg-gray-100 h-screen"
-        >
+        <div class="flex flex-col flex-auto flex-shrink-0 bg-gray-100 h-screen">
           <div class="flex flex-col h-full overflow-x-auto mb-4">
             <div class="flex flex-col h-full">
               <div class="grid grid-cols-12 gap-y-2" v-for="message in messages">
@@ -226,13 +230,12 @@
 import ChatService from "@/service/ChatService";
 import { useRoute } from "vue-router";
 
-import { onUnmounted,onMounted, ref } from "vue";
+import { onUnmounted, onMounted, ref } from "vue";
 import { createToaster } from "@meforma/vue-toaster";
 
 import DicussionMessageRight from "@/components/DicussionMessageRight.vue";
 import DiscussionMessageLeft from "@/components/DiscussionMessageLeft.vue";
 import MobileHeader from "@/components/MobileHeader.vue";
-
 
 import { useUserStore } from "@/stores/user";
 
@@ -252,8 +255,8 @@ export default {
 
     const userStore = useUserStore();
     const autoReloadInterval = ref({
-        type: Number
-    })
+      type: Number,
+    });
 
     const form = ref({
       content: "",
@@ -261,7 +264,7 @@ export default {
 
     const get_or_create_Conversion = async () => {
       const response = await ChatService.conversion_detail(route.params.id);
-      console.log(response)
+      console.log(response);
       conversion.value = response.conversion;
       messages.value = response.messages;
     };

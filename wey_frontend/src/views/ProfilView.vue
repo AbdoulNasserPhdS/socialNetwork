@@ -56,7 +56,8 @@
           >
             Add As Friend
           </a>
-          <a v-if="userStore?.user?.id == user?.id"
+          <a
+            v-if="userStore?.user?.id == user?.id"
             href=""
             class="bg-red-500 rounded-md font-bold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:bg-red-600 ml-2"
           >
@@ -235,7 +236,7 @@
                 ></path>
               </svg>
             </div>
-            <div class="p-6 rounded-lg flex flex-col w-full ">
+            <div class="p-6 rounded-lg flex flex-col w-full">
               <h4 class="mt-1 text-white text-xl font-semibold leading-tight truncate">
                 Loremipsum..
               </h4>

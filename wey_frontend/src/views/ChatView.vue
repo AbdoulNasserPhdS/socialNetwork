@@ -2,13 +2,11 @@
   <!-- component -->
   <!-- This is an example component -->
 
-  <MobileHeader title="Chat" redirect_url="/chat"  class="md:hidden"></MobileHeader>
+  <MobileHeader title="Chat" redirect_url="/chat" class="md:hidden"></MobileHeader>
 
   <div
     class="container mx-auto shadow-lg bg-white rounded-lg h-screen flex justify-center items-center"
   >
-
-
     <div class="w-3/4 h-screen">
       <!-- header -->
       <!-- <div class="px-5 py-5 flex justify-between items-center bg-white border-b-2">
@@ -42,15 +40,15 @@
           >
             <div class="w-1/6">
               <img
-                  src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg"
-                  class="object-cover h-12 w-12 rounded-full"
-                  alt=""
-                />
+                src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg"
+                class="object-cover h-12 w-12 rounded-full"
+                alt=""
+              />
             </div>
-            <RouterLink v-if="conversion?.created_by?.id !== undefined" 
+            <RouterLink
+              v-if="conversion?.created_by?.id !== undefined"
               class="w-full"
               :to="{ name: 'discussion', params: { id: conversion?.created_by?.id } }"
-
             >
               <div class="text-lg font-semibold">
                 {{
@@ -77,12 +75,10 @@ import { useUserStore } from "@/stores/user";
 import ChatService from "@/service/ChatService";
 import MobileHeader from "@/components/MobileHeader.vue";
 
-
 export default {
-
-    components:{
-        MobileHeader,
-    },
+  components: {
+    MobileHeader,
+  },
   setup() {
     const userStore = useUserStore();
     const userId = reactive({

@@ -44,7 +44,6 @@ svg.paint-icon {
     <section class="w-full md:w-3/6 border border-y-0 border-gray-800">
       <!--Content (Center)-->
       <aside>
-
         <MobileHeader title="Home" redirect_url="/" class="md:hidden"></MobileHeader>
 
         <div class="flex hidden md:block">

@@ -11,9 +11,9 @@
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center space-x-2">
           <img
-            src="https://placekitten.com/40/40"
+            src="https://cdn.icon-icons.com/icons2/2030/PNG/512/user_icon_124042.png"
             alt="User Avatar"
-            class="w-8 h-8 rounded-full"
+            class="w-9 h-9 rounded-full"
           />
           <div>
             <p class="text-gray-800 font-semibold">{{ post.created_by?.name }}</p>
