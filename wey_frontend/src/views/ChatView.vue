@@ -84,15 +84,11 @@ export default {
     const userId = reactive({
       value: "",
     });
-    const conversions = ref({
-      type: Array,
-    });
+    const conversions = ref({});
 
     const get_list_conversions = async () => {
       const response = await ChatService.conversion_list();
       conversions.value = response.conversions;
-      console.log("eeeeeeeeeeeeeeeeeeeeeee");
-      console.log(response);
     };
 
     onMounted(() => {

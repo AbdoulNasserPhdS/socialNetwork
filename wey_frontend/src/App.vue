@@ -173,11 +173,12 @@
       </div>
     </aside>
     <!-- Contenu principal -->
-    <main class="flex-1 ">
+    <main class="flex-1">
       <router-view></router-view>
     </main>
 
-    <footer v-if="userStore.user.isAuthenticated"
+    <footer
+      v-if="userStore.user.isAuthenticated"
       class="fixed bottom-0 w-full bg-gradient-to-t from-gray-800 via-gray-700 to-gray-900 text-white shadow-lg max-h-25 md:invisible"
     >
       <link
@@ -185,36 +186,36 @@
         href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css"
       />
 
-      <div class="container mx-auto py-4 px-4">
-        <div class="flex justify-center items-center space-x-8">
+      <div class="container mx-auto py-4 px-8">
+        <div class="flex justify-between items-center">
           <router-link
             to="/"
             class="hover:text-yellow-500 transition duration-300 flex flex-col items-center"
           >
-            <i class="mdi mdi-home mdi-36px"></i>
-            <span class="text-sm">Home</span>
+            <i class="mdi mdi-home mdi-24px"></i>
+            <span class="text-xs">Home</span>
           </router-link>
 
           <router-link
             to="/chat"
             class="hover:text-yellow-500 transition duration-300 flex flex-col items-center"
           >
-            <i class="mdi mdi-message-text mdi-36px"></i>
-            <span class="text-sm">Chat</span>
+            <i class="mdi mdi-message-text mdi-24px"></i>
+            <span class="text-xs">Chat</span>
           </router-link>
           <router-link
             :to="{ name: 'search', params: { keyword: 'all' } }"
             class="hover:text-yellow-500 transition duration-300 flex flex-col items-center"
           >
-            <i class="mdi mdi-magnify mdi-36px"></i>
-            <span class="text-sm">Search</span>
+            <i class="mdi mdi-magnify mdi-24px"></i>
+            <span class="text-xs">Search</span>
           </router-link>
           <router-link
             to="/friends"
             class="hover:text-yellow-500 transition duration-300 flex flex-col items-center"
           >
-            <i class="mdi mdi-account-group mdi-36px"></i>
-            <span class="text-sm">Friend</span>
+            <i class="mdi mdi-account-group mdi-24px"></i>
+            <span class="text-xs">Friend</span>
           </router-link>
         </div>
       </div>

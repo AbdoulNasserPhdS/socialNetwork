@@ -248,12 +248,10 @@ export default {
   setup() {
     const conversion = ref({});
     const messages = ref({});
-
     const route = useRoute();
-
     const toaster = createToaster();
-
     const userStore = useUserStore();
+
     const autoReloadInterval = ref({
       type: Number,
     });
@@ -264,7 +262,6 @@ export default {
 
     const get_or_create_Conversion = async () => {
       const response = await ChatService.conversion_detail(route.params.id);
-      console.log(response);
       conversion.value = response.conversion;
       messages.value = response.messages;
     };
@@ -273,8 +270,6 @@ export default {
       if (conversion.value) {
         const response = await ChatService.send_message(conversion.value.id, form.value);
         messages.value.unshift(response.conversionMessage);
-
-        console.log(messages.value);
       } else {
         toaster.error("Please try again later");
       }
@@ -287,7 +282,6 @@ export default {
     onMounted(() => {
       get_or_create_Conversion();
       autoReloadInterval.value = setInterval(get_or_create_Conversion, 1000);
-      // clearInterval(autoReloadInterval);
     });
 
     onUnmounted(() => {

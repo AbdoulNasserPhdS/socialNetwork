@@ -101,13 +101,9 @@ export default {
     const route = useRoute();
 
     const form = { query: "" };
-    const posts = ref({
-      type: Array,
-    });
+    const posts = ref({});
 
-    const users = ref({
-      type: Array,
-    });
+    const users = ref({});
 
     const submitForm = async () => {
       console.log("submit");
