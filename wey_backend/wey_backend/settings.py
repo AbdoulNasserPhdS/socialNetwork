@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-4!5r6h6j8bkrxlw@b=-%s%jam50gnc!e79-2_)=63dm0kugy%0'
 
-WEBSITE_URL = 'http://127.0.0.1:8000'
+WEBSITE_URL = 'https://socialnetwork-375m.onrender.com'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -56,11 +56,13 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "socialnetwork-375m.onrender.com",
+    "https://socialnetwork-frontend-eq3k.onrender.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "socialnetwork-375m.onrender.com",
+    "https://socialnetwork-frontend-eq3k.onrender.com",
 ]
 
 
